@@ -1,0 +1,26 @@
+﻿@using AspAppOnionShop.Models.Products
+@model ProductsIndexViewModel
+<h1>Products Page Index</h1>
+
+<a asp-action="Create">Create Product</a>
+<a asp-controller="Categories" asp-action="Create">Create Category</a>
+<a asp-controller="Home" asp-action="Index">Home</a>
+
+
+@if (Model.Products.Count > 0)
+{
+<div class="people-list">
+
+    @foreach (var product in Model.Products)
+    {
+<div class="person-info">
+    @await Html.PartialAsync("_Product", product)
+    <div class="person-actions">
+        <a asp-action="Delete" asp-route-id="@product.Id">Delete</a>
+        <a asp-action="Edit" asp-route-id="@product.Id">Edit</a>
+    </div>
+</div>}
+</div> }
+else
+{
+<h4>People list is empty</h4>}
