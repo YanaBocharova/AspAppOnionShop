@@ -32,17 +32,26 @@ namespace Services
 
         public CategoryDto GetCategoryById(Guid id)
         {
-            throw new NotImplementedException();
+            var srch = unitOfWork.CategoriesRepository.Get(id);
+            return mapper.Map<CategoryDto>(srch);
+        }
+
+        public CategoryDto GetCategoryByName(string name)
+        {
+            var srch = unitOfWork.CategoriesRepository.Get(name);
+            return mapper.Map<CategoryDto>(srch);
         }
 
         public void RemoveCategoryById(Guid id)
         {
-            throw new NotImplementedException();
+            unitOfWork.CategoriesRepository.Remove(id);
         }
 
         public void UpdateCategory(CategoryDto category)
         {
-            throw new NotImplementedException();
+            var editCategory= mapper.Map<Category>(category);
+            unitOfWork.CategoriesRepository.Update(editCategory);
+            unitOfWork.SaveChanges();
         }
     }
 }

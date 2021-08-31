@@ -29,7 +29,7 @@ namespace AspAppOnionShop.Controllers
         {
             
             categoriesService.CreateNewCategory(category);
-            return RedirectToAction("Index");
+            return Ok();
         }
     }
 }

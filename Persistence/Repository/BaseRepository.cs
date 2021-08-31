@@ -22,7 +22,7 @@ namespace Persistence.Repository
             db = context;
         }
 
-        public void Create(TValue entity)
+        public virtual void Create(TValue entity)
         {
             db.Entry(entity).State = EntityState.Added;
             db.SaveChanges();
@@ -40,5 +40,7 @@ namespace Persistence.Repository
         public abstract void Remove(TKey id);
 
         public abstract void Update(TValue entity);
+
+        public abstract TValue Get(string name);
     }
 }

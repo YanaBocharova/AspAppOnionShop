@@ -1,4 +1,5 @@
-﻿using AspAppOnionShop.Models.Products;
+﻿using AspAppOnionShop.Models.Categories;
+using AspAppOnionShop.Models.Products;
 using AspAppOnionShop.Sevices.Abstraction;
 using AutoMapper;
 using Services.Abstract;
@@ -19,9 +20,16 @@ namespace AspAppOnionShop.Sevices.Implemention
             this.serviceManager = serviceManager;
             mapper = _mapper;
     }
-        public void CreateNewProduct(ProductViewModel product)
+        public void CreateNewProduct(CreateProduct product)
         {
-            var create = mapper.Map<ProductDto>(product);
+           var srchCategory = serviceManager.CategoriesService.GetCategoryByName(product.Category);
+            ProductViewModel prod = new ProductViewModel
+            {
+                Name = product.Name,
+                Price = product.Price,
+            };
+            prod.Category = mapper.Map<CategoryViewModel>(srchCategory);
+            var create = mapper.Map<ProductDto>(prod);
             serviceManager.ProductsService.CreateNewProduct(create);
         }
 
@@ -33,7 +41,7 @@ namespace AspAppOnionShop.Sevices.Implemention
 
         public ProductViewModel GetProductById(Guid id)
         {
-           var srch = serviceManager.ProductsService.GetProductById(id);
+            var srch = serviceManager.ProductsService.GetProductById(id);
             return mapper.Map<ProductViewModel>(srch);
         }
 

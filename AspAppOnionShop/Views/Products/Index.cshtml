@@ -9,18 +9,20 @@
 
 @if (Model.Products.Count > 0)
 {
-<div class="people-list">
-
-    @foreach (var product in Model.Products)
-    {
-<div class="person-info">
-    @await Html.PartialAsync("_Product", product)
-    <div class="person-actions">
-        <a asp-action="Delete" asp-route-id="@product.Id">Delete</a>
-        <a asp-action="Edit" asp-route-id="@product.Id">Edit</a>
-    </div>
-</div>}
-</div> }
+    <div class="prod-list">
+    
+          @foreach (var product in Model.Products)
+          {
+              <div class="prod-list-info">
+                  @await Html.PartialAsync("_Product", product)
+                  <div class="person-actions">
+                      <a asp-action="Delete" asp-route-id="@product.Id">Delete</a>
+                      <a asp-action="Edit" asp-route-id="@product.Id">Edit</a>
+                  </div>
+              </div>
+           }
+    </div> 
+}
 else
 {
 <h4>People list is empty</h4>}

@@ -11,6 +11,7 @@ namespace Services.Abstract
     {
         IEnumerable<CategoryDto> GetAllCategories();
         CategoryDto GetCategoryById(Guid id);
+        CategoryDto GetCategoryByName(string name);
         void UpdateCategory(CategoryDto category);
         void CreateCategory(CategoryDto category);
         void RemoveCategoryById(Guid id);

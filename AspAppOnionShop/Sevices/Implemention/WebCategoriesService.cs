@@ -35,26 +35,30 @@ namespace AspAppOnionShop.Sevices.Implemention
         public List<CategoryViewModel> GetAllCategories()
         {
             var categories = serviceManager.CategoriesService.GetAllCategories();
-            return categories.Select((c) => new CategoryViewModel
-            {
-                Id = c.Id,
-                Name = c.Name
-            }).ToList();
+            return mapper.Map<List<CategoryViewModel>>(categories);
         }
 
         public CategoryViewModel GetCategoryById(Guid id)
         {
-            throw new NotImplementedException();
+            var srch = serviceManager.CategoriesService.GetCategoryById(id);
+            return mapper.Map<CategoryViewModel>(srch);
+        }
+
+        public CategoryViewModel GetCategoryByName(string name)
+        {
+            var srch = serviceManager.CategoriesService.GetCategoryByName(name);
+            return mapper.Map<CategoryViewModel>(srch);
         }
 
         public void RemoveCategoryById(Guid id)
         {
-            throw new NotImplementedException();
+            serviceManager.CategoriesService.RemoveCategoryById(id);
         }
 
-        public void UpdateCategory(CategoryViewModel person)
+        public void UpdateCategory(CategoryViewModel category)
         {
-            throw new NotImplementedException();
+            var cat = mapper.Map<CategoryDto>(category);
+            serviceManager.CategoriesService.UpdateCategory(cat);
         }
     }
 }

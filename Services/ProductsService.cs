@@ -23,9 +23,12 @@ namespace Services
    
         public void CreateNewProduct(ProductDto product)
         {
-            var createdProduct = mapper.Map<Product>(product);
-            unitOfWork.ProductsRepository.Create(createdProduct);
-            unitOfWork.SaveChanges();
+            if (product != null && product.Category != null)
+            {
+                var createdProduct = mapper.Map<Product>(product);
+                unitOfWork.ProductsRepository.Create(createdProduct);
+                unitOfWork.SaveChanges();
+            }
         }
 
         public IEnumerable<ProductDto> GetAllProducts()

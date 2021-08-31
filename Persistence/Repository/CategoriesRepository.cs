@@ -21,16 +21,21 @@ namespace Persistence.Repository
             return item;
         }
 
+        public override Category Get(string name)
+        {
+            return Table.FirstOrDefault(item => item.Name.Equals(name));
+        }
         public override void Remove(Guid id)
         {
             var item = Get(id);
             Table.Remove(item);
             db.SaveChanges();
         }
-
-        public override void Update(Category entity)
+        public override void Update(Category item)
         {
-            throw new NotImplementedException();
+            var srch = Get(item.Id);
+            srch.Copy(item);
+            db.SaveChanges();
         }
     }
 }

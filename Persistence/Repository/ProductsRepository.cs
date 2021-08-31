@@ -43,5 +43,10 @@ namespace Persistence.Repository
             srch.Copy(item);
             db.SaveChanges();
         }
+
+        public override Product Get(string name)
+        {
+            return Table.FirstOrDefault(item => item.Name.Equals(name));
+        }
     }
 }
