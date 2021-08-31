@@ -64,13 +64,15 @@ namespace AspAppOnionShop.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(ProductViewModel prod)
         {
-            if (productsService.GetProductById((Guid)prod.Id) is null)
+            var srch = productsService.GetProductById((Guid)prod.Id);
+            if (srch is null)
             {
                 return BadRequest("Product was not found");
             }
-
-            productsService.UpdateProduct(prod);
-            return View(productsService.GetProductById(prod.Id));
+            srch.Name = prod.Name;
+            srch.Price = prod.Price;
+            productsService.UpdateProduct(srch);
+            return RedirectToAction("Index");
         }
 
     }

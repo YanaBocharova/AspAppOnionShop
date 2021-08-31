@@ -52,6 +52,7 @@ namespace AspAppOnionShop.Sevices.Implemention
 
         public void UpdateProduct(ProductViewModel product)
         {
+
             var prodEdit = mapper.Map<ProductDto>(product);
             serviceManager.ProductsService.UpdateProduct(prodEdit);
         }

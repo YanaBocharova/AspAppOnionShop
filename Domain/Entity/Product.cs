@@ -19,7 +19,6 @@ namespace Domain.Entity
         {
             Name = from.Name;
             Price = from.Price;
-            Category.Id = from.Category.Id;
         }
     }
 }
