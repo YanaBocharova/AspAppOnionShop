@@ -31,7 +31,6 @@ namespace AspAppOnionShop.Sevices.Implemention
                 serviceManager.CategoriesService.CreateCategory(createdCat);
             }
         }
-
         public List<CategoryViewModel> GetAllCategories()
         {
             var categories = serviceManager.CategoriesService.GetAllCategories();
@@ -49,7 +48,6 @@ namespace AspAppOnionShop.Sevices.Implemention
             var srch = serviceManager.CategoriesService.GetCategoryByName(name);
             return mapper.Map<CategoryViewModel>(srch);
         }
-
         public void RemoveCategoryById(Guid id)
         {
             serviceManager.CategoriesService.RemoveCategoryById(id);

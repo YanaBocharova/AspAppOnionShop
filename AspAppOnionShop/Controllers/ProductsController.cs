@@ -11,13 +11,10 @@ namespace AspAppOnionShop.Controllers
     public class ProductsController : Controller
     {
         readonly IWebProductsService productsService;
-
         public ProductsController(IWebProductsService prodService)
         {
             this.productsService = prodService;
         }
-
-        // [HttpGet]
         public IActionResult Index()
         {
             var prods = productsService.GetAllProducts();
@@ -69,7 +66,6 @@ namespace AspAppOnionShop.Controllers
             }
             return View(productsService.GetProductById((Guid)id));
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(ProductViewModel prod)
@@ -84,6 +80,5 @@ namespace AspAppOnionShop.Controllers
             productsService.UpdateProduct(srch);
             return RedirectToAction("Index");
         }
-
     }
 }
