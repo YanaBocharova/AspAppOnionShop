@@ -27,9 +27,8 @@ namespace AspAppOnionShop.Controllers
         [HttpPost]
         public IActionResult Create(CategoryViewModel category)
         {
-            
             categoriesService.CreateNewCategory(category);
-            return Ok();
+            return RedirectToRoute(new { controller = "Products", action = "Index" });
         }
     }
 }

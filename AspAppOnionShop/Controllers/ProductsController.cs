@@ -20,6 +20,16 @@ namespace AspAppOnionShop.Controllers
         // [HttpGet]
         public IActionResult Index()
         {
+            var prods = productsService.GetAllProducts();
+            if (prods.Count > 0)
+            {
+                return View(new ProductsIndexViewModel
+                {
+                    Products = productsService.GetAllProducts(),
+                    MaxPrice = productsService.GetAllProducts().Max(p => p.Price),
+                    MinPrice = productsService.GetAllProducts().Min(p => p.Price),
+                });
+            }
             return View(new ProductsIndexViewModel
             {
                 Products = productsService.GetAllProducts()

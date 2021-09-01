@@ -78,6 +78,16 @@ body {
     padding: 1%;
 }
 
- .prod-list div {
-     margin: 5px;
- }
+.prod-list div {
+    margin: 5px;
+}
+
+.a-link {
+    display: flex !important;
+    width: 100% !important;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    text-decoration-style:solid;
+    color:magenta;
+    text-align:center;
+}
