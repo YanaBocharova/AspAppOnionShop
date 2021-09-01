@@ -14,6 +14,7 @@ namespace Domain.Repository
         IEnumerable<TValue> GetAll();
         IEnumerable<TValue> GetAll(Func<TValue, bool> predicate);
         TValue Get(TKey id);
+        TValue Get(string name);
         void Create(TValue entity);
         void Remove(TKey id);
         void Update(TValue entity);

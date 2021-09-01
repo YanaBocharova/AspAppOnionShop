@@ -10,8 +10,8 @@ namespace AspAppOnionShop.Sevices.Abstraction
     {
         List<ProductViewModel> GetAllProducts();
         ProductViewModel GetProductById(Guid id);
-        void UpdateProduct(ProductViewModel person);
-        void CreateNewProduct(ProductViewModel person);
+        void UpdateProduct(ProductViewModel product);
+        void CreateNewProduct(CreateProduct product);
         void RemoveProductById(Guid id);
     }
 }

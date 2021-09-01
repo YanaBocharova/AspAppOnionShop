@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Services.Abstract.Dto
 {
-    public class ProductDto
+    public class CreateProductDto
     {
-        public Guid Id { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
-        public virtual CategoryDto Category { get; set; }
+        public string CategoryName { get; set; }
     }
 }

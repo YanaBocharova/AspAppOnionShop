@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace AspAppOnionShop.Models.Products
 {
-    public class ProductViewModel
+    public class CreateProduct
     {
-        public Guid Id { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
-        public virtual CategoryViewModel Category { get; set; }
+        public string Category { get; set; }
     }
 }

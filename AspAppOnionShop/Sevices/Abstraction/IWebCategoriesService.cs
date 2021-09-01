@@ -10,6 +10,7 @@ namespace AspAppOnionShop.Sevices.Abstraction
     {
         List<CategoryViewModel> GetAllCategories();
         CategoryViewModel GetCategoryById(Guid id);
+        CategoryViewModel GetCategoryByName(string name);
         void UpdateCategory(CategoryViewModel category);
         void CreateNewCategory(CategoryViewModel category);
         void RemoveCategoryById(Guid id);

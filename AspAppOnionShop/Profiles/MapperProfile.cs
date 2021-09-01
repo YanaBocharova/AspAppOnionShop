@@ -16,6 +16,9 @@ namespace AspAppOnionShop.Profiles
             CreateMap<ProductDto, ProductViewModel>();
             CreateMap<ProductViewModel, ProductDto>();
 
+            CreateMap<CreateProductDto, CreateProduct>();
+            CreateMap<CreateProduct, CreateProductDto>();
+
             CreateMap<CategoryDto, CategoryViewModel>();
             CreateMap<CategoryViewModel, CategoryDto>();
         }
